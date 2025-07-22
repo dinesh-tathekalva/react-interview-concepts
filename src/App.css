@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.bar{
+  width:300px;
+  height:25px;
+  border-radius: 10px;
+}
+.bar-contents {
+  height:100%;
+  background-color: #00c251;
+}
