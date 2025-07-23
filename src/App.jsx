@@ -8,6 +8,7 @@ import ContactForm from './components/ContactForm'
 import ContentTabs from './components/ContentTabs'
 import ContentTabsData from './data/ContentTabsData.json'
 import ProgressBar from './components/ProgressBar'
+import Modal from './components/Modal'
 
 
 const styles = {
@@ -15,7 +16,8 @@ const styles = {
 }
 function App() {
   const [count, setCount] = useState(0)
-  const[bars, setBars]=useState(0);
+  const [bars, setBars] = useState(0);
+  const [isModalOpen, setModalOpen] = useState(false)
   return (
     <>
       <div>
@@ -27,11 +29,11 @@ function App() {
         <div style={styles}>
           <ContactForm />
         </div>
-        <div sty={styles}>
+        <div style={styles}>
           TABS
           <ContentTabs contents={ContentTabsData} />
         </div>
-        <div sty={styles}>
+        <div style={styles}>
           Progress Bar
           <div className='wrapper' >
             <button onClick={() => setBars(bars + 1)}>Add</button>
@@ -44,6 +46,14 @@ function App() {
 
               }
             </div>
+          </div>
+        </div>
+
+        <div style={styles}>
+          MODAL
+          <div>
+            <button onClick={() => setModalOpen(true)}>Open Modal</button>
+            <Modal isOpen={isModalOpen} onclose={()=>setModalOpen(false)}/>
           </div>
         </div>
         <a href="https://react.dev" target="_blank">
